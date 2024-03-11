@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`approve createStatement 1`] = `
+Array [
+  Array [
+    Array [
+      0,
+      0,
+    ],
+    "Rental Record for Steve
+	Star Wars	2
+	Raiders of the Lost Ark	2
+Amount owed is 4
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      0,
+      1,
+    ],
+    "Rental Record for Steve
+	Star Wars	2
+	Raiders of the Lost Ark	2
+Amount owed is 4
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      0,
+      2,
+    ],
+    "Rental Record for Steve
+	Star Wars	2
+	Raiders of the Lost Ark	2
+Amount owed is 4
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      0,
+      3,
+    ],
+    "Rental Record for Steve
+	Star Wars	3.5
+	Raiders of the Lost Ark	2
+Amount owed is 5.5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      0,
+      4,
+    ],
+    "Rental Record for Steve
+	Star Wars	5
+	Raiders of the Lost Ark	2
+Amount owed is 7
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      1,
+      0,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      1,
+      1,
+    ],
+    "Rental Record for Steve
+	Star Wars	3
+	Raiders of the Lost Ark	2
+Amount owed is 5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      1,
+      2,
+    ],
+    "Rental Record for Steve
+	Star Wars	6
+	Raiders of the Lost Ark	2
+Amount owed is 8
+You earned 3 frequent renter points",
+  ],
+  Array [
+    Array [
+      1,
+      3,
+    ],
+    "Rental Record for Steve
+	Star Wars	9
+	Raiders of the Lost Ark	2
+Amount owed is 11
+You earned 3 frequent renter points",
+  ],
+  Array [
+    Array [
+      1,
+      4,
+    ],
+    "Rental Record for Steve
+	Star Wars	12
+	Raiders of the Lost Ark	2
+Amount owed is 14
+You earned 3 frequent renter points",
+  ],
+  Array [
+    Array [
+      2,
+      0,
+    ],
+    "Rental Record for Steve
+	Star Wars	1.5
+	Raiders of the Lost Ark	2
+Amount owed is 3.5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      2,
+      1,
+    ],
+    "Rental Record for Steve
+	Star Wars	1.5
+	Raiders of the Lost Ark	2
+Amount owed is 3.5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      2,
+      2,
+    ],
+    "Rental Record for Steve
+	Star Wars	1.5
+	Raiders of the Lost Ark	2
+Amount owed is 3.5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      2,
+      3,
+    ],
+    "Rental Record for Steve
+	Star Wars	1.5
+	Raiders of the Lost Ark	2
+Amount owed is 3.5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      2,
+      4,
+    ],
+    "Rental Record for Steve
+	Star Wars	3
+	Raiders of the Lost Ark	2
+Amount owed is 5
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      3,
+      0,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      3,
+      1,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      3,
+      2,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      3,
+      3,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+  Array [
+    Array [
+      3,
+      4,
+    ],
+    "Rental Record for Steve
+	Star Wars	0
+	Raiders of the Lost Ark	2
+Amount owed is 2
+You earned 2 frequent renter points",
+  ],
+]
+`;
