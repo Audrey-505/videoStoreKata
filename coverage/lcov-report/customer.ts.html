@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/34</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/34</span>
+                <span class='fraction'>36/36</span>
             </div>
         
             
@@ -153,7 +153,11 @@
 <a name='L88'></a><a href='#L88'>88</a>
 <a name='L89'></a><a href='#L89'>89</a>
 <a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,11 +188,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">20x</span>
@@ -210,10 +212,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">40x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,6 +242,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {REGULAR_MOVIE, CHILDRENS_MOVIE, NEW_RELEASE_MOVIE} from './movie';
 import { Rental } from './rental';
@@ -249,7 +257,7 @@ import { Rental } from './rental';
 class Customer {
 	public name: string;
 	public rentals: Array&lt;Rental&gt;;
-    private moviePriceMap: { [key: number]: (days: number) =&gt; number } = {
+    private moviePriceMap: { [key: number]: (daysRented: number) =&gt; number } = {
         [REGULAR_MOVIE]: this.regularMovie,
         [NEW_RELEASE_MOVIE]: this.newReleaseMovie,
         [CHILDRENS_MOVIE]: this.childrensMovie,
@@ -273,14 +281,12 @@ class Customer {
           let thisAmount = 0;
 &nbsp;
       thisAmount = this.calculateCost(rental);
+      totalAmount += thisAmount;
       frequentRenterPoints = this.updateRenterPoints(rental, frequentRenterPoints);
-      //result = this.updateResults(rental, thisAmount, frequentRenterPoints, result, totalAmount);
-&nbsp;
-          result += "\t" + rental.getMovie().getTitle() + "\t" +
-                  thisAmount + "\n";
-          totalAmount += thisAmount;
-&nbsp;
+      result = this.appendResults(rental, thisAmount, result);
       }
+    //   let finalResult = this.finalResults(result,totalAmount,frequentRenterPoints);
+    //   finalResult = finalResult;
       result += "Amount owed is " + totalAmount + "\n";
       result += "You earned " + frequentRenterPoints +
               " frequent renter points";
@@ -293,42 +299,48 @@ class Customer {
   }
 &nbsp;
   private updateRenterPoints(rental: Rental, frequentRenterPoints: number){
-    frequentRenterPoints++
-    if ((rental.getMovie().getPriceCode() == NEW_RELEASE_MOVIE) &amp;&amp;
-        rental.getDaysRented() &gt; 1) frequentRenterPoints++;
+    frequentRenterPoints++;
+    if ((rental.getMovie().getPriceCode() == NEW_RELEASE_MOVIE) &amp;&amp; rental.getDaysRented() &gt; 1) 
+        frequentRenterPoints++;
     return frequentRenterPoints;
   }
 &nbsp;
-  private <span class="fstat-no" title="function not covered" >updateResults(</span>rental: Rental, thisAmount: number, frequentRenterPoints: number, result: string, totalAmount: number){
-    // result += "\t" + rental.getMovie().getTitle() + "\t" +
-    //               thisAmount + "\n";
-    //       totalAmount += thisAmount;
-    //     return result;
+  private appendResults(rental: Rental, thisAmount: number, result: string){
+    result += "\t" + rental.getMovie().getTitle() + "\t" + thisAmount + "\n";
+    return result;
   }
 &nbsp;
-  private regularMovie(days: number) {
+  private regularMovie(daysRented: number) {
     let amount = 2;
-    if (days &gt; 2) {
-        amount += (days -2) * 1.5;
+    if (daysRented &gt; 2) {
+        amount += (daysRented -2) * 1.5;
     }
     return amount;
 }
 &nbsp;
-private newReleaseMovie(days: number) {
-    return days * 3 
+private newReleaseMovie(daysRented: number) {
+    return daysRented * 3 
 }
 &nbsp;
-private childrensMovie(days: number) {
+private childrensMovie(daysRented: number) {
     let amount = 1.5;
-    if(days &gt; 3){
-    amount += (days - 3) * 1.5;
+    if(daysRented &gt; 3){
+    amount += (daysRented - 3) * 1.5;
     }
     return amount;
 }
 &nbsp;
-private priceCodeThree(days: number){
-    return days * 0
+private priceCodeThree(daysRented: number){
+    return daysRented * 0
 }
+&nbsp;
+&nbsp;
+//   private finalResults(result: string,totalAmount: number,frequentRenterPoints: number){
+//     result += "Amount owed is " + totalAmount + "\n";
+//       result += "You earned " + frequentRenterPoints +
+//               " frequent renter points";
+//       return result;
+//   }
 &nbsp;
 &nbsp;
 }
@@ -340,7 +352,7 @@ export { Customer };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Mon Mar 11 2024 10:28:52 GMT-0400 (Eastern Daylight Time)
+                at Tue Mar 12 2024 07:13:15 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="prettify.js"></script>
         <script>
